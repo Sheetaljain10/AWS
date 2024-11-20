@@ -1,0 +1,20 @@
+SERVERLESS FRAMEWORK:
+- handles deployment and compactible with all cloud providers.
+- standalone dependency install -> npm install -g serverless
+- windows uses Chocolatey framework -> choco install serverless
+- to get a template -> serverless . Also can be done manually.
+- handles deployment of number of functions/code.
+- AWS service: lambda > Functions (has API Gateway used to invoke) naming format: serviceName-stage-functionName
+- example: greeting-api-http-dev-sayHello.
+- event : has similer to req.body, req.header.
+- AWS service: IAM = manage access to AWS resources
+            - ADD user.
+            - Attach poilcies: AdministratorAccess [Lambda / Api Gateway]
+            - CLI : to access AWS resources. = provides access key and secret key.
+
+FOR DEPLOYMENT IN AWS:
+- setting environment variables.
+- export AWS_ACCESS_KEY=<your-key-here>
+- export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
+- sls deploy / serverless deploy -> creates cofig. files. After deplo, provides an url.
+- TO UNDEPLOY: just remove specify code from functions and deploy.

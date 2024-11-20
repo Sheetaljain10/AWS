@@ -1,0 +1,48 @@
+Amazon S3 > Buckets > privateBuck1
+- Objects : Everything that we upload and can perform any file actions.
+- Properties : 
+            - Bucket overview : Region, ARN [ Amazon resouce name], creation date.
+            - Bucket versioning : To have access to all versions of my application. cost increases.
+            - Tags : To track storage cost and organize buckets. [Key : value (optional)].
+            - Default encryption.
+            - Intelligent tiering Archive configuration.
+            - AWS CloudTrail data events: Tracks user actions by logs. 
+            - services > CloudTrail. After creating trail --> Also view event history (logs). 
+            - Event notification: Any "Event types" occurs [creation, removal, restore , ACL, etc], some actions(trigger) are performed.
+            - such that , execution of lambda function, push "SLS topic" (or) push on SQS queue.
+            - static website hosting.
+
+- Permissions : 
+            - Overview : public /private.
+            - Block public access.
+            - Bucket poilcy : to make accessible.
+            - Access Control List [ACL] : by default disabled (for public)
+            - Grants basic r/w permissions to other AWS accounts.
+            - CORS [Cross-Origin Resource Sharing].
+
+- Metrics :
+        - Metrics for uasge, request, and data transfer activities within bucket.
+
+- Management :
+        - Lifecycle rules : [Storage Classes] to save costing. Based for time periods.
+                    -> Top Level : S3 (faster access)
+                    -> Next Level : Standard-IA
+                    -> Next Level : Glacier Instant Retrieval = slow storage used for backups [on demand]. 
+                    -> Also, can use "permanent delete" after certain days.
+        - Replication rules : Buckets in different regions can replicate each other , for users to have faster access.
+        - Inventory Configurations : Used for monitoring.
+                    -> For given time (frequency) , This creates JSON object that have Properties like no. of objects , size ,etc.
+                    -> specied output format : like CSV , etc.
+
+Amazon S3 Pricing [ COSTING ] **
+- Storage:
+        - Look for cheapest services. [PER MONTHS].
+        - S3 Standard : frequently accessed data.
+        - S3 Intelligent - Tiering : Automatic cost saving for data with unknown  / changing access patterns.
+        - Diffenent Levels and costs.
+        - Glacier Instant [+ 2. Flexible ] Retrieval : very low pricing And has faster retrieval.
+        - Glacier Deep Archive : data restore takes 12 hours and have accessed once / twice a year.
+
+- Data Transfer:
+        - for data streams outside from S3.
+        - Data Transer In has zero cost.

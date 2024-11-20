@@ -1,0 +1,16 @@
+service: greeting-api-http
+frameworkVersion: "3"
+
+provider:
+    name: aws
+    runtime: nodejs18.x
+    region: ap-south-1
+
+functions:
+    sayHello:
+        handler: Hello.handler
+        event:    #TRIGGER / REQUEST.
+          - httpApi:
+              path: /Hello
+              method: GET
+

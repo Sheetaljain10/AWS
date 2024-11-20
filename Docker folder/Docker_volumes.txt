@@ -1,0 +1,17 @@
+container gets temporary memory.
+- storage gets deleted when container get deleted.
+- docker volumes are sort of permanent storage which are bind mount with container.
+- code is mounted on docker .
+    -> [cmd1]: docker run -it -v my_folder_add:/home/app <image_name> bash
+    -> local desktop my_folder that is mounted on docker container.
+    -> any changes on the files replicate on docker.
+
+- second method to mount: 
+    -> [cmd2]: docker volume create <volume_name>
+    -> [cmd3]: docker volume ls.
+    -> [cmd4]: docker run -it -v <volume_name>:/<docker_file/folder_name> node bash.
+    -> inside volume make file : [cmd5] touch <file_name>
+    -> in another terminal run cmd4.
+    -> Doing ls , we can find our local file replication on docker container.
+    -> any changes on the files replicate on docker.
+    -> <volume_name> remains until external deletion, even after deleting containers.

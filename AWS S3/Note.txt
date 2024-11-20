@@ -1,0 +1,28 @@
+Dependencies:
+- npm init : to make package.json file.
+- google :- aws sdk s3 client (to interact with sdk) = npm i @aws-sdk/client-s3 
+- google :- aws sdk presigned url nodejs = npm i  @aws-sdk/s3-request-presigner
+- node filename : to run .
+
+Creating user:
+- IAM > Users > Create user [initially , this user doesn't have any permissions]
+- usename = nodejs, Used ApiKeys to set up s3Client. [s3Client makes requests of behalf of user : nodejs].
+
+After creating URL [only for getObject]:
+- url doesn't work, due to no permissions. 
+- Later modifying the permissions of s3, we have to generate another url. Thus, all prev. URL's also works.
+
+PutObject:
+- After generating URL, use postman > PUT > binary, upload file and send.
+- The url specified for image on S3 doesn't have any permissions.
+- Have to use getObject function.
+- uploading to S3 and bandwidth is all maintained by S3.
+- same upon reupload , will override the current video. So, for new URL, new video upload.
+
+ListObjectsV2Command:
+- lists out all objects and directories.
+
+Note; to do any event on AWS, every thing has an ApiCall.
+
+DeleteObjectCommand:
+- Detetes the object {file}.

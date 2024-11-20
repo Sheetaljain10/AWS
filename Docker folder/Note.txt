@@ -1,0 +1,44 @@
+- Docker has its own image.
+- Docker container example
+    Independent of machine that the container is running.
+        -> install ubuntu, nodejs, redis, postgre. 
+- Virtual box vs docker:
+    -> VB has entire OS which is difficult to deploy.
+    -> Docker pulls OS image , but uses kernel of machine. This makes docker a light weight machine that can be pushed to docker hub.
+
+- To set up docker. Linux (PORTAINER) doesn't have any docker desktop like windows and mac. everything is done on cli.
+        -> Like github, docker hase hub.docker.com that stores all the docker repos.
+        -> [cmd1]: docker run -it <image name> : pulls image that takes less memory. [-it : interactive flag.]
+        -> using this image , we run container. the terminal will run as root user.
+        -> can do anaything that we do on ubuntu.
+        -> [cmd2] :exit
+        -> [cmd3] : docker pull <image name> : like node, which has nodejs installed.
+        -> cmd1 : gets user into that env.
+
+- To containerize docker, we give filename: Dockerfile
+        -> Provide base image[OS] .
+        -> Need to install anything (postgre,etc) [cmd0(generic)] RUN ...
+        -> COPY all files on to containers index.js.
+        -> goto WORKDIR and RUN npm install. 
+        -> run command node index.
+        -> -t (tag).
+        -> build docker -t folder_name .   
+
+- Server will be running inside docker.
+- To get on outside world, we expose port.
+        -> We should tell our machine how it's exposed.
+        -> docker run -p 3000:9000 myapp 
+        -> [-p is port configuration and mapping 9000 to 3000 of local host].
+- .dockerignore : files won't get copied.
+
+- PUSHING on docker hub.
+        -> [cmd5]: docker build -t userName/projectName . [docker file is ins ame folder(.)]
+        -> [on terminal, cmd6]: Docker login -u <username>.
+        -> [cmd7]: docker push userName/projectName.
+
+- Further running the container elsewhere use [cmd8] docker run -it -p 9000:9000 userName/projectName. 
+- After all activites delete the images.
+       -> [cmd9]: docker constainer ls 
+       -> [cmd10]: docker stop <container-id>
+       -> [cmd11]: docker constainer rm <container-id>
+       -> [cmd12 ]: docker image rm <image-id>

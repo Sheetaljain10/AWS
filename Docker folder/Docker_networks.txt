@@ -1,0 +1,11 @@
+Internet, by default, can be accessed inside docker.
+how docker gets assigned with IPs.
+
+Network drivers:
+
+- bridge:
+- host:
+- overlay:
+- ipvlan:
+- macvlan:
+- none:

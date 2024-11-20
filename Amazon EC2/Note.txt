@@ -1,0 +1,41 @@
+Services > EC2 (non-serverless architecture)
+- creating VMs and run servers on that.
+
+Resources :
+- overview of instance.
+
+Launch instance
+- Name , App and OS images [Amazon Machine Image] AMI , version of AMI.
+- Instance type : Families (t2,t3,c4,c5,etc) depends on usecases. T2 is baseline of cpu.
+- Key pair(login) : Key to access the particular instance. [ "GENERATED ONLY ONCE" ].
+                - Name , type (RSA) .
+                - Private key format : .pem (Privacy Enhanced Mail) For use with OpenSSH [Linux/MacOS] / .ppk (PUTTY Private Key) for windows.
+- Network settings : vpc (virtual private cloud)
+                - Create security group > Allow SSH Traffic = ( ANYWHERE / Specific IP (this may not be static)).
+- Configure storage : Free tier [30 GB].
+- STATES OF INSTANCES : Stop , Start , Reboot , Terminate , Pending , Running, etc.
+
+Instance consists of every details of the VM.
+- Public IP has its own Auto-signed IP Add.
+- Elastic IPs : Used state -> the IP is assigned to the instance. :- NO CHARGES.
+                Unused state -> Ip isn't assigned / Released. :- CHARGES APPLIED.
+            - Actions : View details , Release IP , Associate IP , Dissociate IP.
+            - NO Auto Assigned IPs.
+
+Connect to Instance (NO UI only Terminal):
+- Via browser : can run UBUNTU VM using terminal on browser. 
+- Via session Manager. 
+- Via SSH Client (Mostly) PORT 22 : Secure Shell , used to run remote machines on desktop.
+            -  Inbuilt for Linux/Mac, Can install / use Putty (SSH & Telnet client).
+            - to verify [cmd: ssh].
+            - chmod (cmd for access permissions) 400 (to protect against Accidental overwriting) key. [gave Permission from desktop].
+            - ssh -i "keyName.pem" userName@IP_add / @IP_DNS_add
+            - IP_DNS_add format : ec2-IP.region.compute.amazonaws.com.
+            - After connection, The desktop terminal becomes terminal of UBUNTU on AWS.
+            - vim editor [cms: wq].
+- Via Ec2 serial console.
+
+Service health :
+- normal operation and availability zones.
+
+Note : Stick on working for a region without switching.
